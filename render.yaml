@@ -1,0 +1,29 @@
+services:
+  # Backend API Service
+  - type: web
+    name: liquidity-asset-backend
+    env: python
+    region: singapore
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: UPLOAD_DIR
+        value: ./uploads
+      - key: MAX_UPLOAD_SIZE
+        value: 52428800
+    disk:
+      name: uploads
+      mountPath: ./uploads
+      sizeGB: 1
+
+  # PostgreSQL Database
+  - type: pserv
+    name: liquidity-asset-db
+    plan: free
+    databaseName: liquidity_asset_db
+    databaseUser: postgres
+    databasePassword: auto-generated-by-render
+    ipAllowList: []

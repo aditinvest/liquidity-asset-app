@@ -43,3 +43,6 @@ htmlcov/
 
 # Railway
 .railway
+
+# Render
+.render
