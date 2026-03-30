@@ -1,0 +1,20 @@
+Cash Projection
+1. Buat File bernama Data CF Projection ......
+2. Data diperoleh dari sistem SIMS Aset dashboard 
+3. ganti nama sheet menjadi Depo dan Bond
+4. Perhatikan tanggal dalam format yang benar
+5. Upload
+
+Realization Report
+1. Data dari SiMS Asset berupa laporan 06 - deposit TRX Historical with break dan laporan 13- Bond Trx Historical
+2. Gabungkan menjadi 1 file dengan nama Data CF Realisasi Aset BP jan 2026
+3. Ganti nama sheet menjadi Depo dan Bond
+4. Untuk bond BuyandSell ganti Syariah = FALSE/ TRUE
+
+MP Asset dan kalender Jatuh Tempo
+1. Save as File CF Projection menjadi Data Portfolio Aset Xxx
+2. Perhatikan tanggal dalam format yang benar
+3. Xx
+
+
+Please make a full-stack framework documentation with features, scheme and flow app. Use postgres database schema if possible.

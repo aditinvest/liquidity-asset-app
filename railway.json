@@ -1,0 +1,21 @@
+# Railway Configuration
+# This file helps Railway understand your project structure
+
+# Backend (Python/FastAPI)
+# - Located in /backend directory
+# - Uses requirements.txt for dependencies
+# - Uses Procfile for startup command
+
+# Database
+# - PostgreSQL database will be auto-provisioned
+# - Connection string available via $DATABASE_URL environment variable
+
+# Environment Variables Needed:
+# DATABASE_URL - PostgreSQL connection string (auto-provided by Railway)
+# UPLOAD_DIR - Directory for file uploads (default: ./uploads)
+# MAX_UPLOAD_SIZE - Maximum file size in bytes (default: 52428800)
+# PORT - Server port (Railway auto-sets this)
+
+# Build Configuration
+# Railway will automatically detect Python and use pip to install dependencies
+# No additional build configuration needed
