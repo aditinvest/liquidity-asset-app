@@ -2,12 +2,21 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
+import logging
 
 from app.database import engine, Base
 from app.routers import upload, projections, realizations, manual_inputs, export, portfolio
 
-# Create database tables
-Base.metadata.create_all(bind=engine)
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Create database tables (safely - won't error if tables exist)
+try:
+    Base.metadata.create_all(bind=engine)
+    logger.info("Database tables created/verified successfully")
+except Exception as e:
+    logger.warning(f"Could not create tables (they may already exist): {e}")
 
 app = FastAPI(
     title="Liquidity Asset App API",
