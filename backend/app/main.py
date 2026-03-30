@@ -4,19 +4,14 @@ from fastapi.staticfiles import StaticFiles
 import os
 import logging
 
-from app.database import engine, Base
-from app.routers import upload, projections, realizations, manual_inputs, export, portfolio
-
-# Set up logging
+# Set up logging FIRST before any imports
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Create database tables (safely - won't error if tables exist)
-try:
-    Base.metadata.create_all(bind=engine)
-    logger.info("Database tables created/verified successfully")
-except Exception as e:
-    logger.warning(f"Could not create tables (they may already exist): {e}")
+# Import routers BEFORE creating app to avoid issues
+from app.routers import upload, projections, realizations, manual_inputs, export, portfolio
+
+logger.info("Starting Liquidity Asset App API...")
 
 app = FastAPI(
     title="Liquidity Asset App API",
